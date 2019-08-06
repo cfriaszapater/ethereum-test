@@ -2,7 +2,7 @@
 
 Try an interaction with smart contract in ethereum ropsten test network using [web3js API](https://github.com/ethereum/web3.js/).
 
-## Run
+## Run - Interact with argentlabs contract
 
 Create account with parity in ropsten:
 
@@ -24,6 +24,21 @@ Interact with ethereum using web3 javascript API:
 
 ```sh
 node app.js
+```
+
+## Run - Deploy a contract and interact with it
+
+Add `--jsonrpc-cors=all` to the parity start command, to allow remix IDE to connect to it.
+
+Use [remix IDE](http://remix.ethereum.org) to compile and deploy SimpleStorage.sol.
+
+- Use "web3 provider" option and then set <http://localhost:8545> as URL.
+- Deploy, check the transaction on [etherscan](https://ropsten.etherscan.io) and copy the contract address from there (eg: `0xab4ea7b12505da2f94a04aae6f2745dc5f00cc9e`).
+
+Interact with the contract:
+
+```sh
+node simplestorage.js
 ```
 
 ## See also

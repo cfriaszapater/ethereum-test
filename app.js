@@ -1,5 +1,7 @@
 /*jshint esversion: 8 */
 
+const { getBlockNumber, getBalance } = require("./ethUtils");
+
 var Web3 = require('web3');
 var keccak256 = require('keccak256');
 
@@ -45,27 +47,12 @@ interactWithEth();
 
 async function interactWithEth() {
     try {
-        await getBlockNumber();
-        await getBalance();
+        await getBlockNumber(web3);
+        await getBalance(web3, myAccount);
         await apply();
         await getApplicationID();
     } catch (error) {
         console.error(error);
-    }
-}
-
-async function getBlockNumber() {
-    const result = await web3.eth.getBlockNumber();
-    return console.log('last block number: ', result);
-}
-
-async function getBalance() {
-    try {
-        const result = await web3.eth.getBalance(myAccount);
-        console.log('balance: ', result);
-    } catch (error) {
-        console.error('getBalance error: ', error);
-        throw error;
     }
 }
 
