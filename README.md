@@ -23,7 +23,7 @@ Fund your account with some ether: <https://faucet.ropsten.be/>
 Interact with ethereum using web3 javascript API:
 
 ```sh
-node main.js
+node app.js
 ```
 
 ## See also
