@@ -12,3 +12,7 @@ Start parity ethereum node on ropsten in light mode (to reduce sync time and dis
 
 Interact with ethereum using web3 javascript API:
 `node main.js`
+
+## See also 
+
+[https://github.com/argentlabs/application]
