@@ -1,6 +1,6 @@
 # ethereum-test
 
-Try an interaction with smart contract in ethereum ropsten test network.
+Try an interaction with smart contract in ethereum ropsten test network using [web3js javascript API](https://github.com/ethereum/web3.js/).
 
 ## Run
 
