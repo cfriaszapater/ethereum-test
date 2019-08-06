@@ -8,7 +8,7 @@ var web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
 
 var myAccount = '0xf8003cf271dee578778267161134b57de2ecb240';
 
-var myContract = new web3.eth.Contract([{
+var contract = new web3.eth.Contract([{
         "constant": false,
         "inputs": [{
             "name": "hash",
@@ -38,7 +38,7 @@ var myContract = new web3.eth.Contract([{
 ], '0xcbbfbafedb0eb83016d2a96a4e80d30b20fa3e30', {
     from: myAccount
 });
-console.log(myContract);
+console.log(contract);
 
 interactWithEth();
 
@@ -68,8 +68,9 @@ async function getBalance() {
         throw error;
     }
 }
+
 function apply() {
-    return myContract.methods.apply(keccak256('carlos.frias.zapater@gmail.com')).send()
+    return contract.methods.apply(keccak256('carlos.frias.zapater@gmail.com')).send()
         .on('receipt', (receipt) => console.log('receipt: ', receipt))
         .on('transactionHash', (transactionHash) => console.log('apply transactionHash: ', transactionHash))
         .on('confirmation', (confirmation) => console.log('apply confirmation: ', confirmation))
@@ -78,7 +79,7 @@ function apply() {
 
 async function getApplicationID() {
     try {
-        const result = await myContract.methods.getApplicationID('carlos.frias.zapater@gmail.com').call();
+        const result = await contract.methods.getApplicationID('carlos.frias.zapater@gmail.com').call();
         return console.log('getApplicationID: ', result);
     } catch (error) {
         console.error('getApplicationID error: ', error);
